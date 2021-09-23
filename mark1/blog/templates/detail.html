@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>{{blog.title}}</h1>
+    <p>날짜: {{blog.pub_date}}</p>
+    <p>본문: {{blog.body}}</p>
+    <p>카테고리: {{blog.category}}</p>
+    <p style="color: palevioletred;">
+        {% for hashtag in hashtags.all %}
+            #{{hashtag}}
+        {% endfor %}
+    </p>
+    <br>
+    <br>
+    <a href = "{% url 'home' %}">홈으로 돌아가기</a>
+    <br>
+    <a href = "{% url 'edit' blog.id %}">수정하기</a>
+    <br>
+    <a href = "{% url 'delete' blog.id %}">삭제하기</a>
+    
+    <!-- 댓글 추가 -->
+    <hr>
+    {% for comment in blog.comments.all %}
+    <div class = "comment">
+        <div class = "date">{{comment.created_at}}</div>
+        <strong>{{comment.author_name}}</strong>
+        <p>{{comment.comment_text|linebreaks}}</p>
+    </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+    <hr>
+    <a class="btn btn-outline-info" href="{% url 'add_comment_to_post' blog.id %}">댓글달기</a>
+</body>
+</html>
