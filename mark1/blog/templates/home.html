@@ -47,6 +47,11 @@
     </div>
   </nav>
     <h1>Interview Project</h1>
+    <form method='POST' action="{% url 'search' %}">
+      {% csrf_token %}
+      <input type="text" name="keyword" placeholder="전체검색">
+      <button class="button" type="submit">검색</button>
+    </form>
     <p>
       {% if user.is_authenticated %}
       {{user.username}}님 환영합니다!

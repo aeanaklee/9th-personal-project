@@ -34,5 +34,7 @@ urlpatterns = [
     path('account/register', account.register_view, name="register"),
     path('blog/cate01', blog.views.cate01, name="cate01"),
     path('blog/cate02', blog.views.cate02, name="cate02"),
-
+    path('blog/search', blog.views.search, name="search"),
+    path('blog/search01', blog.views.search01, name="search01"),
+    path('blog/search02', blog.views.search02, name="search02"),
 ]

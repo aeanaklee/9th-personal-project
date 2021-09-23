@@ -78,3 +78,35 @@ def cate01(request):
 def cate02(request):
     blogs = Blog.objects.all().filter(category_id=2).order_by('-pub_date')
     return render(request, 'cate02.html', {'blogs': blogs})
+
+
+def search(request):
+    if request.method == 'POST':
+        keyword = request.POST.get('keyword')
+        hashtag = HashTag.objects.filter(hashtag_name=keyword)
+        blog = Blog.objects.filter(hashtag__in=hashtag).order_by('-pub_date')
+        return render(request, 'search.html', {'blogs': blog, 'keyword': keyword})
+    elif request.method == 'GET':
+        return redirect('/')
+
+
+def search01(request):
+    if request.method == 'POST':
+        keyword = request.POST.get('keyword')
+        hashtag = HashTag.objects.filter(hashtag_name=keyword)
+        blog = Blog.objects.filter(
+            hashtag__in=hashtag, category_id=1).order_by('-pub_date')
+        return render(request, 'Search01.html', {'blogs': blog, 'keyword': keyword})
+    elif request.method == 'GET':
+        return redirect('/')
+
+
+def search02(request):
+    if request.method == 'POST':
+        keyword = request.POST.get('keyword')
+        hashtag = HashTag.objects.filter(hashtag_name=keyword)
+        blog = Blog.objects.filter(
+            hashtag__in=hashtag, category_id=2).order_by('-pub_date')
+        return render(request, 'Search01.html', {'blogs': blog, 'keyword': keyword})
+    elif request.method == 'GET':
+        return redirect('/')
