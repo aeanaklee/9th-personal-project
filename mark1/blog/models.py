@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from account.models import CustomUser
 # Create your models here.
 
 
@@ -23,11 +24,13 @@ class HashTag(models.Model):
 
 
 class Blog(models.Model):
+    writer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
     hashtag = models.ManyToManyField(HashTag)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    like = models.ManyToManyField(CustomUser, related_name='likes', blank=True)
 
     def __str__(self):
         return self.title
@@ -39,7 +42,8 @@ class Blog(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(
         Blog, related_name="comments", on_delete=models.CASCADE)
-    author_name = models.CharField(max_length=20)
+    author_name = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, null=True)
     comment_text = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 

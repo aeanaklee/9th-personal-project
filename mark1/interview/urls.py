@@ -29,12 +29,25 @@ urlpatterns = [
     path('blog/delete/<int:blog_id>', blog.views.delete, name="delete"),
     path('blog/<int:blog_id>/comment',
          blog.views.add_comment_to_post, name="add_comment_to_post"),
+
     path('account/login', account.login_view, name="login"),
     path('account/logout', account.logout_view, name="logout"),
     path('account/register', account.register_view, name="register"),
+
+    path('delete_comment/<int:blog_id>/<int:comment_id>',
+         blog.views.delete_comment, name="delete_comment"),
+    path('blog/edit_comment/<int:blog_id>/<int:comment_id>',
+         blog.views.edit_comment, name="edit_comment"),
+    path('blog/update_comment/<int:comment_id>',
+         blog.views.update_comment, name="update_comment"),
+
     path('blog/cate01', blog.views.cate01, name="cate01"),
     path('blog/cate02', blog.views.cate02, name="cate02"),
     path('blog/search', blog.views.search, name="search"),
     path('blog/search01', blog.views.search01, name="search01"),
     path('blog/search02', blog.views.search02, name="search02"),
+
+    path('blog/mypage', blog.views.mypage, name="mypage"),
+    path('blog/like', blog.views.likes, name="likes"),
+    path('account/edit_user', account.edit_user, name="edit_user"),
 ]

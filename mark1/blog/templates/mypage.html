@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <title>Mypage</title>
+</head>
+<body>
+    <h1>마이페이지</h1>
+
+    {% if user.is_authenticated %}
+    <p>
+        <h3>내 정보</h3>
+        아이디 : {{ user.username }}<br>
+        닉네임 : {{ user.nickname }}<br>
+        위치 : {{ user.location }}<br>
+    </p>
+    {% endif %}
+    <h6><a href="{% url 'edit_user' %}">내 정보 수정하기</a></h6>
+    <br>
+    <h3>내가 쓴 글</h3>
+    {% for myblog in myblogs.all %}
+    <div style="
+    border: 2px dashed rgb(130, 141, 238);
+    background-color: beige;
+    padding: 10px 20px;">
+        <h1>{{ myblog.title}}</h1>
+        <p>날짜 : {{ myblog.pub_date }}</p>
+        <p>본문 : {{ myblog.summary }}<a href="{% url 'detail' myblog.id %}">...more</a></p>
+    </div>
+    <br>
+    {% empty %}
+        <div>아직 작성한 글이 없습니다.</div>
+    {% endfor %}
+    <br>
+
+    <h3>즐겨찾기 한 글</h3>
+    {% for user_like in user_likes.all  %}
+    <div style="
+    border: 2px dashed rgb(130, 141, 238);
+    background-color: beige;
+    padding: 10px 20px;">
+        <h1>{{ user_like.title}}</h1>
+        <p>날짜 : {{ user_like.pub_date }}</p>
+        <p>본문 : {{ user_like.summary }}<a href="{% url 'detail' user_like.id %}">...more</a></p>
+    </div>
+    <br>
+    {% empty %}
+        <div>아직 즐겨찾기 한 글이 없습니다.</div>
+    {% endfor %} 
+</body>
+</html>
