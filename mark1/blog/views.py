@@ -33,6 +33,8 @@ def create(request):
         new_blog.save()
         hashtags = request.POST['hashtags']
         hashtag = hashtags.split(",")
+        if 'image' in request.FILES:
+            image = request.FILES['image']
         for tag in hashtag:
             ht = HashTag.objects.get_or_create(hashtag_name=tag)
             new_blog.hashtag.add(ht[0])

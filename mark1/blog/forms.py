@@ -7,7 +7,7 @@ from .models import Blog, Comment, Category
 class BlogForm(forms.ModelForm):
     class Meta:  # 일종의 이름표 역할
         model = Blog
-        fields = ['category', 'title', 'body', ]
+        fields = ['category', 'title', 'body', 'image']
 
 
 class CommentForm(forms.ModelForm):

@@ -122,3 +122,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'blog', 'static')
+]
+# static 파일이 어디로 모일지 쓰는 곳
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# media 파일이 어디로 모일지 쓰는 곳
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 웹페이지 이름 /media/파일 이름 url
+MEDIA_URL = '/media/'

@@ -28,6 +28,7 @@ class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
     body = models.TextField()
     hashtag = models.ManyToManyField(HashTag)
     like = models.ManyToManyField(CustomUser, related_name='likes', blank=True)

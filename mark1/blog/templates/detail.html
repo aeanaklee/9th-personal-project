@@ -24,6 +24,9 @@
     <p>날짜: {{blog.pub_date}}<br>
     카테고리: {{blog.category}}<br>
     작성자: {{blog.writer}}</p>
+    {% if blog.image %}
+        <img src="{{ blog.image.url }}" height="400">
+    {% endif %}
     <p>본문: {{blog.body}}</p>
     <p style="color: palevioletred;">
         {% for hashtag in hashtags.all %}
