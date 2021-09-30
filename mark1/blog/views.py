@@ -13,6 +13,11 @@ def home(request):
     return render(request, 'home.html', {'blogs': blog})
 
 
+def all_list(request):
+    blog = Blog.objects.order_by('-pub_date')  # query set!
+    return render(request, 'all_list.html', {'blogs': blog})
+
+
 def detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
     blog_hashtag = blog_detail.hashtag.all()
@@ -51,6 +56,8 @@ def update(request, blog_id):
     blog_update = get_object_or_404(Blog, pk=blog_id)
     blog_update.title = request.POST['title']
     blog_update.body = request.POST['body']
+    if 'image' in request.FILES:
+        blog_update.image = request.FILES['image']
     blog_update.save()
     return redirect('home')
 

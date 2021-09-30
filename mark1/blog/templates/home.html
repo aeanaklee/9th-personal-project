@@ -5,52 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/home.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/home01.css?a" />
 </head>
 <body>
   {%load static%}
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          {% if not user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Signup</a>
-          </li>
-          {% endif %}
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'mypage' %}">MyPage</a>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cate01' %}">인터뷰어 구하기</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cate02' %}">인터뷰이 구하기</a>
-          </li>
-        </ul>
-          <a class="btn btn-outline-info" href="{% url 'new' %}">글쓰기</a>
-      </div>
+  <div class = "wrap01">
+    <div class = "top_gnb">
+      <ul>
+        <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+      </ul>
+      <ul>
+        {% if not user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}">Signup</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
+          <li class="nav-item"><a href="{% url 'mypage' %}">MyPage</a></li>
+        {% endif %}
+      </ul>
+      <ul>
+        <li class="nav-item"><a href="{% url 'all_list' %}">전체 글 목록</a></li>
+        <li class="nav-item"><a href="{% url 'cate01' %}">인터뷰어 구하기</a></li>
+        <li class="nav-item"><a href="{% url 'cate02' %}">인터뷰이 구하기</a></li>
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'new' %}">글쓰기</a></li>
+        {% endif %}
+      </ul>
     </div>
-  </nav>
-    <img src="{%static 'woorideul.jpg'%}" height="400">
-    <h1>Interview Project</h1>
+  </div>
+  <div class = "wrap02">
+    <div><h1 class = "main_title">Interview Project</h1></div>
+    <div><img class = "main_photo" src="{%static 'back01.jpg'%}" alt="main_photo" /></div>
+  </div>
+  <div class = "wrap03">
+    <div><p>수염고래류와 이빨고래류으로 나뉜다.</p></div>
+    <div>
+      <p>
+        뒷다리는 퇴화하였는데, 척추에 연결되어 있지 않고 몸 속에 작은 흔적이 남아있다. 꼬리지느러미는 수평방향이다.
+        몸에 털이 거의 없으며 두꺼운 피하지방이 체온을 보호한다.
+        폐호흡을 하고 자궁 내에서 태아 자라며 배꼽이 있는 것 등 포유동물의 특징을 지니고 있다.
+      </p>
+    </div>
+  </div>
+  <div class = "wrap04">
+    <div class = "nav_card">
+      <a href="{% url 'all_list' %}"><p>전체 글 목록</p></a>
+      <a href="{% url 'cate01' %}"><p>인터뷰어<br>구하기</p></a>
+      <a href="{% url 'cate02' %}"><p>인터뷰이<br>구하기</p></a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'new' %}"><p>글쓰기</p></a>
+      {% endif %}
+    </div>
+  </div>
     <form method='POST' action="{% url 'search' %}">
       {% csrf_token %}
       <input type="text" name="keyword" placeholder="전체검색">
@@ -64,17 +73,5 @@
       <a href="{% url 'new' %}">새로운 글 생성하기</a>
       {% endif %}
     </p>
-
-    {% for blog in blogs.all %}
-    <div style="
-    border: 2px dashed rgb(130, 141, 238);
-    background-color: beige;
-    padding: 10px 20px;">
-        <h1>{{ blog.title}}</h1>
-        <p>날짜 : {{ blog.pub_date }}</p>
-        <p>본문 : {{ blog.summary }}<a href="{% url 'detail' blog.id %}">...more</a></p>
-    </div>
-    <br>
-    {% endfor %}
 </body>
 </html>

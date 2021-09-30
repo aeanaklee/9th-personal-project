@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All List</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/home01.css?after" />
+</head>
+<body>
+  {%load static%}
+    <form method='POST' action="{% url 'search' %}">
+      {% csrf_token %}
+      <input type="text" name="keyword" placeholder="전체검색">
+      <button class="button" type="submit">검색</button>
+    </form>
+    <p>
+      {% if user.is_authenticated %}
+      {{user.username}}님 환영합니다!
+      닉네임:{{user.nickname}}
+      위치:{{user.location}}
+      <a href="{% url 'new' %}">새로운 글 생성하기</a>
+      {% endif %}
+    </p>
+
+    {% for blog in blogs.all %}
+    <div style="
+    border: 2px dashed rgb(130, 141, 238);
+    background-color: beige;
+    padding: 10px 20px;">
+        <h1>{{ blog.title}}</h1>
+        <p>날짜 : {{ blog.pub_date }}</p>
+        <p>본문 : {{ blog.summary }}<a href="{% url 'detail' blog.id %}">...more</a></p>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>

@@ -1,8 +1,9 @@
 <h1>Editing Blog</h1>
 
-<form action = "{% url 'update' blog.id %}" method="post">
+<form action = "{% url 'update' blog.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <p>제목: <input type = "text" name = "title" value = "{{ blog.title }}"></p>
-    본문: <textarea name = "body" id = "" cols = "30" rows = "20" >{{ blog.body }}</textarea>
+    본문: <textarea name = "body" id = "" cols = "30" rows = "20" >{{ blog.body }}</textarea><br>
+    <input type="file" type="img" name="image"><br>
     <button type = "submit">제출</button>
 </form>
