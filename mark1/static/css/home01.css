@@ -19,64 +19,8 @@ body {
   margin: 0;
 }
 
-.wrap01 {
-  width: 100%;
-  background-color: rgb(173, 173, 173);
-  display: flex;
-}
-
-.top_gnb {
-  margin: 0 auto;
-  width: 90%;
-  height: 70px;
-  min-width: 1000px;
-  text-align: center;
-  overflow: hidden;
-  border-bottom: 2px solid rgba(126, 126, 126, 0.4);
-}
-.top_gnb ul {
-  overflow: hidden;
-  margin-top: 17px;
-  padding: 8px 0px;
-}
-.top_gnb ul li a {
-  display: block;
-  margin: 0 13px;
-  padding: 3px;
-  font-size: 0.9em;
-  font-weight: 500;
-  color: white;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  opacity: 0.9;
-  border-bottom: 1px solid rgba(255, 255, 255, 0);
-}
-.top_gnb ul li a:hover {
-  border-bottom: 1px solid white;
-  transition-duration: 0.4s;
-}
-.top_gnb ul:nth-child(1) {
-  float: left;
-  margin-left: 40px;
-  width: 150px;
-  height: 50px;
-  overflow: hidden;
-}
-.top_gnb ul:nth-child(2) {
-  margin-right: 50px;
-  float: right;
-}
-.top_gnb ul:nth-child(3) {
-  margin-right: 10px;
-  padding-right: 10px;
-  float: right;
-  border-right: 2px solid rgba(126, 126, 126, 0.4);
-}
-.top_gnb ul li {
-  float: left;
-}
-
 .wrap02 {
+  padding-top: 65px;
   width: 100%;
   background-color: rgb(194, 194, 194);
   text-align: center;
@@ -90,7 +34,7 @@ body {
   border-bottom: 2px solid rgba(126, 126, 126, 0.4);
 }
 .main_title {
-  font-size: 6em;
+  font-size: 85px;
   font-weight: bold;
   font-family: "Syncopate", sans-serif;
   font-weight: 400;
@@ -122,7 +66,7 @@ body {
 }
 .wrap03 > div {
   margin: 70px 0px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Pretendard-Regular";
 }
 .wrap03 > div:nth-child(1) {
   width: 50%;
@@ -135,18 +79,19 @@ body {
 .wrap03 > div:nth-child(1) > p {
   padding-left: 80px;
   width: 80%;
-  font-size: 45px;
-  line-height: 70px;
+  font-size: 46px;
+  line-height: 60px;
   font-weight: 300;
 }
 .wrap03 > div:nth-child(2) > p {
   padding-left: 50px;
   width: 75%;
   font-size: 1em;
+  font-weight: 400;
   line-height: 30px;
 }
 
-.wrap04 {
+.nav_wrap {
   position: sticky;
   bottom: 0;
   width: 100%;
@@ -161,27 +106,29 @@ body {
   width: 170px;
   height: 120px;
   background-color: burlywood;
+  backdrop-filter: blur(8px);
 }
 .nav_card > a:nth-child(1) {
-  background-color: rgb(211, 117, 81);
+  background-color: rgba(211, 118, 81, 0.7);
 }
 .nav_card > a:nth-child(2) {
-  background-color: rgb(228, 174, 214);
+  background-color: rgb(228, 174, 214, 0.7);
 }
 .nav_card > a:nth-child(3) {
-  background-color: rgb(243, 231, 118);
+  background-color: rgb(243, 231, 118, 0.7);
 }
 .nav_card > a:nth-child(4) {
-  background-color: rgb(126, 218, 90);
+  background-color: rgb(126, 218, 90, 0.7);
 }
 .nav_card > a > p {
   padding: 20px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Pretendard-Regular";
   font-size: 18px;
+  line-height: 25px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0);
+  color: rgba(36, 36, 36, 0.2);
 }
 .nav_card > a > p:hover {
-  color: white;
+  color: rgba(36, 36, 36, 1);
   transition-duration: 0.7s;
 }

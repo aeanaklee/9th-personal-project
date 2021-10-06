@@ -156,17 +156,17 @@ def likes(request):
         post = Blog.objects.get(id=blog_id)
 
         if not request.user.is_authenticated:  # 버튼을 누른 유저가 비로그인 유저일 때
-            message = "로그인을 해주세요"  # 화면에 띄울 메세지
+            message = "로그인 하세요"  # 화면에 띄울 메세지
             context = {'like_count': post.like.count(), "message": message}
             return HttpResponse(json.dumps(context), content_type='application/json')
 
         user = request.user  # request.user : 현재 로그인한 유저
         if post.like.filter(id=user.id).exists():  # 이미 좋아요를 누른 유저일 때
             post.like.remove(user)  # like field에 현재 유저 추가
-            message = "좋아요 취소"  # 화면에 띄울 메세지
+            message = "즐겨찾기 취소"  # 화면에 띄울 메세지
         else:  # 좋아요를 누르지 않은 유저일 때
             post.like.add(user)  # like field에 현재 유저 삭제
-            message = "좋아요"  # 화면에 띄울 메세지
+            message = "즐겨찾기 추가"  # 화면에 띄울 메세지
         # post.like.count() : 게시물이 받은 좋아요 수
         context = {'like_count': post.like.count(), "message": message}
         return HttpResponse(json.dumps(context), content_type='application/json')

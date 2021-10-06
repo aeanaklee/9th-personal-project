@@ -7,38 +7,24 @@
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/home01.css?a" />
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css?s" />
+    <link rel="stylesheet" type="text/css" href="/static/css/home01.css?dxvcs" />
+  </head>
 <body>
+  {% extends 'base_gnb.html' %}
   {%load static%}
-  <div class = "wrap01">
-    <div class = "top_gnb">
-      <ul>
-        <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
-      </ul>
-      <ul>
-        {% if not user.is_authenticated %}
-          <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
-          <li class="nav-item"><a href="{% url 'register' %}">Signup</a></li>
-        {% endif %}
-        {% if user.is_authenticated %}
-          <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
-          <li class="nav-item"><a href="{% url 'mypage' %}">MyPage</a></li>
-        {% endif %}
-      </ul>
-      <ul>
-        <li class="nav-item"><a href="{% url 'all_list' %}">전체 글 목록</a></li>
-        <li class="nav-item"><a href="{% url 'cate01' %}">인터뷰어 구하기</a></li>
-        <li class="nav-item"><a href="{% url 'cate02' %}">인터뷰이 구하기</a></li>
-        {% if user.is_authenticated %}
-          <li class="nav-item"><a href="{% url 'new' %}">글쓰기</a></li>
-        {% endif %}
-      </ul>
-    </div>
-  </div>
+  {% block content %}
   <div class = "wrap02">
     <div><h1 class = "main_title">Interview Project</h1></div>
     <div><img class = "main_photo" src="{%static 'back01.jpg'%}" alt="main_photo" /></div>
+  </div>
+  <div class = "wrap_form">
+    <form class = "search" method='POST' action="{% url 'search' %}">
+      {% csrf_token %}
+      <input type="text" name="keyword" placeholder="전체게시판에서 태그로 검색">
+      <button class="button" type="submit">검색</button>
+    </form>
   </div>
   <div class = "wrap03">
     <div><p>수염고래류와 이빨고래류으로 나뉜다.</p></div>
@@ -50,7 +36,8 @@
       </p>
     </div>
   </div>
-  <div class = "wrap04">
+  <div class = "empty_div"></div>
+  <div class = "nav_wrap">
     <div class = "nav_card">
       <a href="{% url 'all_list' %}"><p>전체 글 목록</p></a>
       <a href="{% url 'cate01' %}"><p>인터뷰어<br>구하기</p></a>
@@ -60,18 +47,6 @@
       {% endif %}
     </div>
   </div>
-    <form method='POST' action="{% url 'search' %}">
-      {% csrf_token %}
-      <input type="text" name="keyword" placeholder="전체검색">
-      <button class="button" type="submit">검색</button>
-    </form>
-    <p>
-      {% if user.is_authenticated %}
-      {{user.username}}님 환영합니다!
-      닉네임:{{user.nickname}}
-      위치:{{user.location}}
-      <a href="{% url 'new' %}">새로운 글 생성하기</a>
-      {% endif %}
-    </p>
+  {%endblock%}
 </body>
 </html>
