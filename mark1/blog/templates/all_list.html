@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css?dsv" />
-    <link rel="stylesheet" type="text/css" href="/static/css/all_list.css?schsv" />
+    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/all_list.css" />
 </head>
 <body>
   {% extends 'base_gnb.html' %}
   {% block content %}
     <div class = "wrap02">
       <div><p>전체 글 목록</p></div>
-      <div><p>뒷다리는 퇴화하였는데, 척추에 연결되어 있지 않고 몸 속에 작은 흔적이 남아있다. </p></div>
+      <div><p>웹사이트의 전체 글을 확인할 수 있습니다.</p></div>
     </div>
     <div class = "wrap_form">
       <form class = "search" method='POST' action="{% url 'search' %}">

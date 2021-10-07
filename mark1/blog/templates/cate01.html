@@ -8,15 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css?dsv" />
-    <link rel="stylesheet" type="text/css" href="/static/css/cate01.css?sazs" />
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/cate01.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/base_nav.css" />
 </head>
 <body>
     {% extends 'base_gnb.html' %}
     {% block content %}
     <div class = "wrap02">
         <div><p>인터뷰어 구하기</p></div>
-        <div><p>뒷다리는 퇴화하였는데, 척추에 연결되어 있지 않고 몸 속에 작은 흔적이 남아있다. </p></div>
+        <div><p>인터뷰 대상자를 구하는 인터뷰어를 찾을 수 있습니다.</p></div>
     </div>
     <div class = "wrap_form">
         <form class = "search" method='POST' action="{% url 'search01' %}">
@@ -49,6 +51,16 @@
             </div>
         </a>
         {% endfor %}
+        </div>
+    </div>
+    <div class = "nav_wrap">
+        <div class = "nav_card">
+            <a href="{% url 'all_list' %}"><p>All Post</p></a>
+            <a href="{% url 'cate01' %}"><p>Interviewer</p></a>
+            <a href="{% url 'cate02' %}"><p>Interviewee </p></a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'new' %}"><p>Write</p></a>
+            {% endif %}
         </div>
     </div>
     {% endblock %}

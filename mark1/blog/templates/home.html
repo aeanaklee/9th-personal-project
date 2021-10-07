@@ -8,8 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css?s" />
-    <link rel="stylesheet" type="text/css" href="/static/css/home01.css?dxvcs" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/base_gnb.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/home01.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/base_nav.css" />
   </head>
 <body>
   {% extends 'base_gnb.html' %}
@@ -17,7 +19,7 @@
   {% block content %}
   <div class = "wrap02">
     <div><h1 class = "main_title">Interview Project</h1></div>
-    <div><img class = "main_photo" src="{%static 'back01.jpg'%}" alt="main_photo" /></div>
+    <div><img class = "main_photo" src="{%static 'back03.jpg'%}" alt="main_photo" /></div>
   </div>
   <div class = "wrap_form">
     <form class = "search" method='POST' action="{% url 'search' %}">
@@ -27,25 +29,26 @@
     </form>
   </div>
   <div class = "wrap03">
-    <div><p>수염고래류와 이빨고래류으로 나뉜다.</p></div>
+    <div><p>원하는 분야의 인터뷰이,<br>인터뷰어를 구할 수 있는곳</p></div>
     <div>
       <p>
-        뒷다리는 퇴화하였는데, 척추에 연결되어 있지 않고 몸 속에 작은 흔적이 남아있다. 꼬리지느러미는 수평방향이다.
-        몸에 털이 거의 없으며 두꺼운 피하지방이 체온을 보호한다.
-        폐호흡을 하고 자궁 내에서 태아 자라며 배꼽이 있는 것 등 포유동물의 특징을 지니고 있다.
+        과제수행이나 자료조사를 위해서 인터뷰 대상자를 구하는 인터뷰어,<br>
+        혹은 자기홍보를 위해 인터뷰 참여를 원하는 인터뷰이들을<br>탐색할 수 있는 웹사이트입니다.
       </p>
     </div>
   </div>
-  <div class = "empty_div"></div>
   <div class = "nav_wrap">
     <div class = "nav_card">
-      <a href="{% url 'all_list' %}"><p>전체 글 목록</p></a>
-      <a href="{% url 'cate01' %}"><p>인터뷰어<br>구하기</p></a>
-      <a href="{% url 'cate02' %}"><p>인터뷰이<br>구하기</p></a>
+      <a href="{% url 'all_list' %}"><p>All Post</p></a>
+      <a href="{% url 'cate01' %}"><p>Interviewer</p></a>
+      <a href="{% url 'cate02' %}"><p>Interviewee </p></a>
       {% if user.is_authenticated %}
-        <a href="{% url 'new' %}"><p>글쓰기</p></a>
+        <a href="{% url 'new' %}"><p>Write</p></a>
       {% endif %}
     </div>
+  </div>
+  <div class = "empty_div">
+    <div>ⓒ 2021. InterviewPorject all rights reserved.</div>
   </div>
   {%endblock%}
 </body>

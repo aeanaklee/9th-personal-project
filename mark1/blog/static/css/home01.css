@@ -22,7 +22,7 @@ body {
 .wrap02 {
   padding-top: 65px;
   width: 100%;
-  background-color: rgb(194, 194, 194);
+  background-color: #bebebd;
   text-align: center;
 }
 .wrap02 > div:nth-child(1) {
@@ -43,7 +43,7 @@ body {
 
 .wrap02 > div:nth-child(2) {
   width: 100%;
-  height: 480px;
+  height: 500px;
   display: inline-block;
   width: 90%;
   overflow: hidden;
@@ -63,7 +63,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgb(194, 194, 194);
+  background-color: #bebebd;
 }
 .wrap_form > .search {
   display: block;
@@ -101,30 +101,29 @@ body {
 
 .wrap03 {
   width: 100%;
-  background-color: rgb(248, 248, 248);
-  overflow: hidden;
+  background-color: #f9f9f8;
+  display: flex;
+  justify-content: center;
 }
 .wrap03 > div {
   margin: 70px 0px;
   font-family: "Pretendard-Regular";
 }
 .wrap03 > div:nth-child(1) {
-  width: 50%;
-  float: left;
+  width: 600px;
 }
 .wrap03 > div:nth-child(2) {
-  width: 50%;
-  float: left;
+  width: 600px;
 }
 .wrap03 > div:nth-child(1) > p {
-  padding-left: 80px;
+  margin-left: 50px;
   width: 80%;
   font-size: 46px;
   line-height: 60px;
   font-weight: 300;
 }
 .wrap03 > div:nth-child(2) > p {
-  padding-left: 50px;
+  margin-left: 50px;
   width: 75%;
   font-size: 1em;
   font-weight: 400;
@@ -132,9 +131,16 @@ body {
 }
 
 .empty_div {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 200px;
-  background-color: rgb(194, 194, 194);
+  background-color: #e2e2e0;
+}
+.empty_div > div {
+  margin-top: 37px;
+  color: #8a8a84;
+  font-family: "Poppins";
 }
 
 .nav_wrap {

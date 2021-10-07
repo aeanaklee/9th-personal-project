@@ -21,7 +21,7 @@ html {
 }
 body {
   min-width: 1000px;
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   margin: 0;
 }
 .wrap02 {
@@ -190,6 +190,7 @@ body {
   line-height: 28px;
   border: 1px solid rgb(218, 218, 218);
   border-left: 0;
+  background-color: #ffffff;
 }
 .com_empty {
   color: rgb(182, 182, 182);
@@ -212,11 +213,11 @@ body {
   display: flex;
   justify-content: center;
   background-color: rgb(224, 224, 224);
-  transition: 0.3s;
   font-family: "Poppins", "Pretendard-Regular";
   font-size: 22px;
-  color: black;
+  color: #464646;
   line-height: 75px;
+  transition: 0.3s;
 }
 .com_button:hover {
   background-color: rgb(163, 163, 163);

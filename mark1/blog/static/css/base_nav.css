@@ -1,0 +1,41 @@
+.nav_wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.nav_card {
+  overflow: hidden;
+}
+.nav_card > a {
+  float: left;
+  width: 150px;
+  height: 100px;
+  background-color: burlywood;
+  backdrop-filter: blur(7px);
+}
+.nav_card > a:nth-child(1) {
+  background-color: rgba(25, 138, 255, 0.6);
+}
+.nav_card > a:nth-child(2) {
+  background-color: rgb(155, 194, 255, 0.6);
+}
+.nav_card > a:nth-child(3) {
+  background-color: rgb(255, 199, 205, 0.6);
+}
+.nav_card > a:nth-child(4) {
+  background-color: rgb(255, 233, 164, 0.6);
+}
+.nav_card > a > p {
+  padding: 16px;
+  font-family: "Hahmlet", serif;
+  font-size: 17px;
+  line-height: 25px;
+  font-weight: 600;
+  color: rgba(36, 36, 36, 0.2);
+}
+.nav_card > a > p:hover {
+  color: rgba(36, 36, 36, 1);
+  transition-duration: 0.7s;
+}

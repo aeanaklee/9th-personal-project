@@ -21,7 +21,7 @@ html {
 }
 body {
   min-width: 1000px;
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   margin: 0;
 }
 .wrap02 {
@@ -35,11 +35,11 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  margin-left: -340px;
+  margin-left: -310px;
   transition: 0.3s;
 }
 .scrap_title {
-  flex-basis: 500px;
+  min-width: 500px;
   position: relative;
   bottom: 80px;
   left: 300px;
@@ -62,7 +62,7 @@ body {
   font-family: "Hahmlet", serif;
   font-size: 70px;
   font-weight: 500;
-  text-shadow: 2px 2px 5px rgba(48, 48, 48, 0.3);
+  text-shadow: 2px 2px 5px rgba(238, 238, 238, 0.795);
 }
 .image_wrap02 {
   width: 600px;
@@ -89,7 +89,7 @@ body {
 }
 .image_wrap01 > .hashtag {
   position: relative;
-  width: 100px;
+  width: 150px;
   margin-bottom: 50px;
   margin-left: 50px;
   text-align: left;
@@ -190,6 +190,7 @@ body {
   line-height: 28px;
   border: 1px solid rgb(218, 218, 218);
   border-left: 0;
+  background-color: #ffffff;
 }
 .com_empty {
   color: rgb(182, 182, 182);
